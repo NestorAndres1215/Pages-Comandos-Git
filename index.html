@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Esenciales de Git</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="48" height="48" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M90.156 41.965L50.036 1.848C47.688 -0.5 43.729 -0.5 41.373 1.848L33.082 10.138L43.597 20.653C46.11 19.789 49.02 20.316 51.074 22.37C53.146 24.45 53.665 27.399 52.769 29.926L62.853 39.999C65.378 39.104 68.331 39.624 70.404 41.704C73.229 44.529 73.229 49.068 70.404 51.894C67.579 54.719 63.04 54.719 60.212 51.894C58.048 49.725 57.558 46.595 58.641 44.013L49.24 34.613V59.279C49.988 59.65 50.673 60.152 51.219 60.695C54.044 63.517 54.044 68.056 51.219 70.887C48.394 73.712 43.851 73.712 41.033 70.887C38.208 68.056 38.208 63.517 41.033 60.695C41.673 60.052 42.45 59.521 43.286 59.14V34.194C42.45 33.819 41.679 33.284 41.033 32.638C38.855 30.461 38.374 27.313 39.471 24.728L29.11 14.366L1.848 41.623C-0.5 43.981 -0.5 47.94 1.848 50.296L41.969 90.416C44.317 92.762 48.276 92.762 50.634 90.416L90.156 50.896C92.502 48.538 92.502 44.581 90.156 41.965Z"
+                        fill="#F97316" />
+                </svg>
+            </div>
+            <h1 class="title">Comandos Esenciales de Git</h1>
+            <p class="subtitle">Guía completa para el control de versiones</p>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCommands('all')">All</button>
+            <button class="filter-btn" onclick="filterCommands('basic')">Basic</button>
+            <button class="filter-btn" onclick="filterCommands('intermediate')">Intermediate</button>
+            <button class="filter-btn" onclick="filterCommands('advanced')">Advanced</button>
+        </div>
+
+        <div class="commands-grid">
+            <!-- git init -->
+            <div class="command-card basic active inicio repositorio">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-plus icon"></i>
+                        git init
+                        <span class="card-tag">Inicialización</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git init')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Inicializa un nuevo repositorio Git en el directorio actual.</p>
+                    <div class="card-example">
+                        <pre>git init</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git clone -->
+            <div class="command-card basic active remoto descarga">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-clone icon"></i>
+                        git clone
+                        <span class="card-tag">Repositorio</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn"
+                            onclick="copyToClipboard('git clone https://github.com/usuario/repo.git')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Clona un repositorio existente desde una URL remota.</p>
+                    <div class="card-example">
+                        <pre>git clone https://github.com/usuario/repo.git</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git status -->
+            <div class="command-card basic active consulta estado">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-info-circle icon"></i>
+                        git status
+                        <span class="card-tag">Inspección</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git status -s')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra el estado del árbol de trabajo, incluyendo cambios rastreados y
+                        no rastreados.</p>
+                    <div class="card-example">
+                        <pre>git status -s</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git add -->
+            <div class="command-card basic active preparación cambios">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-plus-circle icon"></i>
+                        git add
+                        <span class="card-tag">Staging</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git add .')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Añade cambios del directorio de trabajo al área de staging.</p>
+                    <div class="card-example">
+                        <pre>git add archivo.txt || git add .</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git commit -->
+            <div class="command-card basic active historial snapshot">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-check icon"></i>
+                        git commit
+                        <span class="card-tag">Guardado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git commit -m \" Mensaje descriptivo\"')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Guarda los cambios del área de staging en el historial del repositorio.
+                    </p>
+                    <div class="card-example">
+                        <pre>git commit -m "Mensaje descriptivo"</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git push -->
+            <div class="command-card basic active remoto subir">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-upload icon"></i>
+                        git push
+                        <span class="card-tag">Sincronización</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git push origin main')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Envía los commits locales a un repositorio remoto.</p>
+                    <div class="card-example">
+                        <pre>git push origin main</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git pull -->
+            <div class="command-card basic active remoto descargar">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-download icon"></i>
+                        git pull
+                        <span class="card-tag">Sincronización</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git pull origin main')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Obtiene e integra cambios de un repositorio remoto.</p>
+                    <div class="card-example">
+                        <pre>git pull origin main</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git branch -->
+            <div class="command-card intermediate active ramificación gestión">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-code-branch icon"></i>
+                        git branch
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git branch nueva-rama')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Lista, crea o elimina ramas.</p>
+                    <div class="card-example">
+                        <pre>git branch nueva-rama</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git checkout -->
+            <div class="command-card intermediate active navegación cambio">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-exchange-alt icon"></i>
+                        git checkout
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git checkout -b nueva-rama')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Cambia entre ramas o restaura archivos del árbol de trabajo.</p>
+                    <div class="card-example">
+                        <pre>git checkout -b nueva-rama</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git merge -->
+            <div class="command-card intermediate active combinación unión">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-code-merge icon"></i>
+                        git merge
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git merge feature-branch')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Combina el historial de ramas.</p>
+                    <div class="card-example">
+                        <pre>git merge feature-branch</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git stash -->
+            <div class="command-card intermediate active almacenamiento temporal">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-archive icon"></i>
+                        git stash
+                        <span class="card-tag">Temporal</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git stash pop')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Guarda temporalmente cambios sin commit.</p>
+                    <div class="card-example">
+                        <pre>git stash pop</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git log -->
+            <div class="command-card intermediate active historial consulta">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-history icon"></i>
+                        git log
+                        <span class="card-tag">Inspección</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git log --oneline --graph --all')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra el historial de commits con diversas opciones de formato.</p>
+                    <div class="card-example">
+                        <pre>git log --oneline --graph --all</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git reflog -->
+            <div class="command-card intermediate active historial emergencia">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-life-ring icon"></i>
+                        git reflog
+                        <span class="card-tag">Rescate</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git reflog')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra un registro de todos los movimientos de HEAD (útil para
+                        recuperar commits perdidos).</p>
+                    <div class="card-example">
+                        <pre>git reflog</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git revert -->
+            <div class="command-card intermediate active seguro emergencia">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-undo-alt icon"></i>
+                        git revert
+                        <span class="card-tag">Deshacer</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git revert abc123')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Crea un nuevo commit que deshace cambios de un commit anterior (más
+                        seguro que reset).</p>
+                    <div class="card-example">
+                        <pre>git revert abc123</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git config alias -->
+            <div class="command-card intermediate active productividad alias">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-cog icon"></i>
+                        git config alias
+                        <span class="card-tag">Configuración</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git config --global alias.st \" status
+                            -s\"')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Crea atajos personalizados para comandos frecuentes.</p>
+                    <div class="card-example">
+                        <pre>git config --global alias.st "status -s"</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git blame -->
+            <div class="command-card intermediate active autores historial">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-user-tag icon"></i>
+                        git blame
+                        <span class="card-tag">Inspección</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git blame archivo.txt')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra quién modificó cada línea de un archivo y en qué commit.</p>
+                    <div class="card-example">
+                        <pre>git blame archivo.txt</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git show -->
+            <div class="command-card intermediate active detalles commit">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-eye icon"></i>
+                        git show
+                        <span class="card-tag">Inspección</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git show abc123')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra información detallada de un commit específico.</p>
+                    <div class="card-example">
+                        <pre>git show abc123</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git fetch --prune -->
+            <div class="command-card intermediate active limpieza remoto">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-broom icon"></i>
+                        git fetch --prune
+                        <span class="card-tag">Sincronización</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git fetch --prune')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Sincroniza ramas remotas y elimina las que ya no existen.</p>
+                    <div class="card-example">
+                        <pre>git fetch --prune</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git shortlog -->
+            <div class="command-card intermediate active estadísticas historial">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-list-ul icon"></i>
+                        git shortlog
+                        <span class="card-tag">Inspección</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git shortlog -sn')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Muestra un resumen de commits por autor.</p>
+                    <div class="card-example">
+                        <pre>git shortlog -sn</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git rebase -->
+            <div class="command-card advanced active historial reorganización">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-code-branch icon"></i>
+                        git rebase
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git rebase main')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Reaplica commits encima de otra rama base.</p>
+                    <div class="card-example">
+                        <pre>git rebase main</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git reset -->
+            <div class="command-card advanced active revertir peligroso">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-undo icon"></i>
+                        git reset
+                        <span class="card-tag">Deshacer</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git reset --hard HEAD~1')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Deshace commits o cambios en el área de staging.</p>
+                    <div class="card-example">
+                        <pre>git reset --hard HEAD~1</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git rebase -i -->
+            <div class="command-card advanced active historial rebase">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-code-branch icon"></i>
+                        git rebase -i
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git rebase -i HEAD~3')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Reorganiza, edita o combina commits interactivamente (¡cuidado con esto
+                        en ramas públicas!).</p>
+                    <div class="card-example">
+                        <pre>git rebase -i HEAD~3</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git cherry-pick -->
+            <div class="command-card advanced active commit selectivo">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-hand-pointer icon"></i>
+                        git cherry-pick
+                        <span class="card-tag">Ramas</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git cherry-pick abc123')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Aplica un commit específico de otra rama a tu rama actual.</p>
+                    <div class="card-example">
+                        <pre>git cherry-pick abc123</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git bisect -->
+            <div class="command-card advanced active debug bug">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-bug icon"></i>
+                        git bisect
+                        <span class="card-tag">Depuración</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn"
+                            onclick="copyToClipboard('git bisect start git bisect bad git bisect good v1.0')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Ayuda a encontrar el commit que introdujo un bug usando búsqueda
+                        binaria.</p>
+                    <div class="card-example">
+                        <pre>git bisect start git bisect bad git bisect good v1.0</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git worktree -->
+            <div class="command-card advanced active ramas paralelo">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-folder-tree icon"></i>
+                        git worktree
+                        <span class="card-tag">Productividad</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn"
+                            onclick="copyToClipboard('git worktree add ../feature-ruta feature/ruta')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Permite trabajar con múltiples ramas en directorios separados
+                        simultáneamente.</p>
+                    <div class="card-example">
+                        <pre>git worktree add ../feature-ruta feature/ruta</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git push --force -->
+            <div class="command-card advanced active peligroso remoto">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-exclamation-triangle icon"></i>
+                        git push --force
+                        <span class="card-tag">Sincronización</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git push --force origin main')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Fuerza el push sobrescribiendo el remoto (¡puede borrar trabajo de
+                        otros!).</p>
+                    <div class="card-example">
+                        <pre>git push --force origin main</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git gc -->
+            <div class="command-card advanced active optimización limpieza">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-trash-restore icon"></i>
+                        git gc
+                        <span class="card-tag">Mantenimiento</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git gc --aggressive')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Optimiza el repositorio (recolector de basura).</p>
+                    <div class="card-example">
+                        <pre>git gc --aggressive</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git fsck -->
+            <div class="command-card advanced active reparación verificación">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-check-double icon"></i>
+                        git fsck
+                        <span class="card-tag">Mantenimiento</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git fsck --full')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Verifica la integridad del sistema de archivos Git.</p>
+                    <div class="card-example">
+                        <pre>git fsck --full</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- git submodule -->
+            <div class="command-card advanced active dependencias modulos">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-puzzle-piece icon"></i>
+                        git submodule
+                        <span class="card-tag">Avanzado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-btn" onclick="copyToClipboard('git submodule update --init --recursive')">
+                            <i class="fas fa-copy icon"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-question-circle icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">Gestiona repositorios anidados dentro de tu proyecto.</p>
+                    <div class="card-example">
+                        <pre>git submodule update --init --recursive</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 - Guía de Comandos Git</p>
+        </footer>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+</body>
+
+</html>
